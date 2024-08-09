@@ -19,8 +19,21 @@
     <main>
         <div class="container vh-100 ">
             <h1 class="display-1">Authentication Project</h1>
-            <a href="{% url 'login' %}" class="btn btn-outline-dark">Login</a>
+            <!-- <a href="{% url 'login' %}" class="btn btn-outline-dark">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-outline-dark">Register</a> -->
+            
+            
+            {% if user.is_authenticated %}
+            <h3>Welcome {{user.username}}</h3>
+            <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
+            
+            {% else %}
             <a href="{% url 'register' %}" class="btn btn-outline-dark">Register</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-dark">Login</a>
+            
+                
+            {% endif %}
+                
 
         </div>
     </main>
